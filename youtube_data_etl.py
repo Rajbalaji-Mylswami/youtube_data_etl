@@ -185,10 +185,10 @@ def main():
         # Remove the "_id" column from the DataFrames
         if "_id" in channel_df.columns:
             channel_df = channel_df.drop("_id", axis=1)
-        if "_id" in channel_df.columns:
-            channel_df = channel_df.drop("_id", axis=1)
-        if "_id" in channel_df.columns:
-            channel_df = channel_df.drop("_id", axis=1)
+        if "_id" in video_df.columns:
+            video_df = video_df.drop("_id", axis=1)
+        if "_id" in comment_df.columns:
+            comment_df = comment_df.drop("_id", axis=1)
 
         # Insert the DataFrames into MySQL tables
         channel_df.to_sql("channels", con=engine, if_exists="append", index=False)
