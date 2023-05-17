@@ -206,6 +206,7 @@ def main():
         results = pd.read_sql_query(query, engine)
         st.subheader("Query 1: Video Name and Channel Name")
         st.table(results)
+        st.bar_chart(results['channel_name'].value_counts())
 
         # 2nd query (channel_name, video_count)
         query = """
@@ -217,6 +218,7 @@ def main():
         results = pd.read_sql_query(query, engine)
         st.subheader("Query 2: Channel Name and Video Count")
         st.table(results)
+        st.bar_chart(results.set_index('channel_name'))
 
         # 3rd query (channel_name, video_count)
         query = """
@@ -228,6 +230,7 @@ def main():
         results = pd.read_sql_query(query, engine)
         st.subheader("Query 3: Top 10 Videos by View Count")
         st.table(results)
+        st.bar_chart(results.set_index('video_name'))
 
         # 4th query (video_name, comment_count)
         query = """
@@ -238,6 +241,7 @@ def main():
         results = pd.read_sql_query(query, engine)
         st.subheader("Query 4: Video Name and Comment Count")
         st.table(results)
+        st.bar_chart(results.set_index('video_name'))
 
         # 5th query (video_name, channel_name, like_count)
         query = """
@@ -249,6 +253,7 @@ def main():
         results = pd.read_sql_query(query, engine)
         st.subheader("Query 5: Top 10 Videos by Like Count")
         st.table(results)
+        st.bar_chart(results.set_index('video_name'))
 
         # 6th query (video_name, like_count)
         query = """
@@ -259,6 +264,7 @@ def main():
         results = pd.read_sql_query(query, engine)
         st.subheader("Query 6: Videos by Total Likes")
         st.table(results)
+        st.bar_chart(results.set_index('video_name'))
 
         # 7th query (channel_name, channel_views)
         query = """
@@ -268,6 +274,7 @@ def main():
         results = pd.read_sql_query(query, engine)
         st.subheader("Query 7: Channels and Total Views")
         st.table(results)
+        st.bar_chart(results.set_index('channel_name'))
 
         # 8th query (video_name, max_views)
         query = """
@@ -279,6 +286,7 @@ def main():
         results = pd.read_sql_query(query, engine)
         st.subheader("Query 8: Top 10 Videos by Views count")
         st.table(results)
+        st.bar_chart(results.set_index('video_name'))
 
         # 9th query (video_name, channel_name, comment_count)
         query = """
@@ -292,6 +300,7 @@ def main():
         results = pd.read_sql_query(query, engine)
         st.subheader("Query 9: Top 10 Videos by Comment Count")
         st.table(results)
+        st.bar_chart(results.set_index('video_name'))
 
         # 10th query (video_name, channel_name, comment_likes)
         query = """
@@ -304,6 +313,7 @@ def main():
         results = pd.read_sql_query(query, engine)
         st.subheader("Query 10: Top 10 Comments by Likes")
         st.table(results)
+        st.bar_chart(results.set_index('video_name'))
 
 if __name__ == "__main__":
     main()
